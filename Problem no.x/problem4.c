@@ -2,10 +2,14 @@
 #include <math.h>
 #include <stdbool.h>
 
+//A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+//Find the largest palindrome made from the product of two 3-digit numbers.
+
 bool IsPalindrome(int num);
 
 int main(void)
 {
+	//iterating over all 3 digit number
 	for (int i = 999; i > 99; i--)
 	{
 		for (int j = 999; j > 99; j--)
