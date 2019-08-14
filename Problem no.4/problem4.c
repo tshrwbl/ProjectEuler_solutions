@@ -9,58 +9,57 @@ bool IsPalindrome(int num);
 
 int main(void)
 {
+	//biggsest pal.
+	int bigPal[] = {0,0,0};
 	//iterating over all 3 digit number
 	for (int i = 999; i > 99; i--)
 	{
 		for (int j = 999; j > 99; j--)
 		{
-			if (IsPalindrome(i*j))
+			if (IsPalindrome(i * j))
 			{
-				printf("%i * %i = %i \n", i, j, i*j);
+				if ((i * j) > bigPal[0])
+				{
+					bigPal[0] = i * j;
+					bigPal[1] = i;
+					bigPal[2] = j;
+				}
 			}
 		}
 	}
+	
+	printf("%i * %i = %i \n", bigPal[1], bigPal[2], bigPal[0]);
 }
 
 bool IsPalindrome(int num)
 {
-	//Divide number in two halfs
-	//len is nuber of digit or length
-	int firstHalf;
-	int secondHalf;
-	int len = (int) floor(1 + log10((double) num));
-	double lenHalf = floor((double) len / 2);
-	
-	//creating firsthalf and secondhalf
-	//ignore middle digit for odd number len, eg 12345
-	//halfs		odd 	even
-	//fh        12xxx 	12xx
-	//sc 		xxx45	xx34
-	if (len % 2 == 1)
+	//length ln
+	//narr array contains all digits in number
+	int ln = (int) floor(log10((double) num) + 1);
+	int narr[ln];
+	for (int i = 0; i < ln; i++)
 	{
-		firstHalf = num / (int) pow(10.0 , lenHalf + 1.0);
-		secondHalf = num - (int)(((double)num / pow(10.0, lenHalf + 1.0)) * pow(10.0, lenHalf + 1.0));
-	}
-	else
-	{
-		firstHalf = num / (int)pow(10.0, lenHalf);
-		secondHalf = num - (firstHalf * (int) pow(10.0, lenHalf));
+		int power = round(pow(10.0 , ((double) ln) - 1 - i));
+		narr[i] = num / power;
+		num -= narr[i] * power;
 	}
 	
-	//reverse the secondHalf
-	int reverseSc = 0;
-	for (int i = 0; i < (int)lenHalf; i++)
+	//check for the match
+	int match = 0;
+	for (int j = 0; j < ln; j++)
 	{
-		reverseSc += (secondHalf / (int)pow(10.0 , lenHalf - 1.0 - i)) * ((int)pow(10.0 , i));
+		if (narr[j] == narr[ln - 1 - j])
+		{
+			match++;
+		}
 	}
 	
-	//final check of both half
-	if (firstHalf == reverseSc)
+	//return true or false
+	if (match == ln)
 	{
-		//printf("%i + %i len %i, lh %fd \n", firstHalf, reverseSc , len , lenHalf);
 		return true;
 	}
-	else
+	else 
 	{
 		return false;
 	}
