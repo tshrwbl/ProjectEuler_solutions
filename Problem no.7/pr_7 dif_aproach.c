@@ -26,7 +26,7 @@ int main(void)
 		//int sqnum = round(sqrt((double) num));
 		//for every prime is in arr
 		//check for divisibility
-		for (int i = 0; i < currentlen ; i++)
+		for (int i = 0; i < (int) currentlen / 2 ; i++)
 		{
 			//printf("checking %i mod %i \n", num, arr[i]);
 			if (num % arr[i] == 0)

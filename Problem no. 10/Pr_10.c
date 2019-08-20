@@ -1,29 +1,33 @@
+//TO DO
+//The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+//Find the sum of all the primes below two million. 20 00 000
+
 #include<stdio.h>
 #include<math.h>
 #include<stdbool.h>
-
-//TO DO
-// What is the 10 001st prime number?
 
 bool isPrime(int n);
 
 int main (void)
 {
 	//total prime found
-	int primeNum = 0;
+	unsigned long long int primeSum = 2;
 	
 	int num = 3;
-	while(primeNum != 148932)
+	int limit = 2000000;
+	
+	while(num < limit)
 	{
 		if (isPrime(num))
 		{
-			primeNum++;
+			primeSum += num;
+			printf("%i %lld \n", num ,primeSum);
 		}
 		num += 2;		
 	}
 	
 	//print the 10001st prime number
-	printf("%i \n", num - 2);
+	printf("%i %lld \n", num ,primeSum);
 }
 
 bool isPrime(int n)
@@ -37,3 +41,5 @@ bool isPrime(int n)
 	}
 	return true;
 }
+
+
