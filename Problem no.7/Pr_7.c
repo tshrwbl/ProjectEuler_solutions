@@ -13,7 +13,7 @@ int main (void)
 	int primeNum = 0;
 	
 	int num = 3;
-	while(primeNum != 148932)
+	while(primeNum != 10000)
 	{
 		if (isPrime(num))
 		{
