@@ -2,16 +2,18 @@
 #include<string.h>
 
 //TO DO
-//	In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+//	In the 20ï¿½20 grid below, four numbers along a diagonal line have been marked in red.
 //	** 20 x 20 grid **
-//	The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+//	The product of these numbers is 26 ï¿½ 63 ï¿½ 78 ï¿½ 14 = 1788696.
 //	
-//	What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+//	What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20ï¿½20 grid?
 
-long int getProduct(int arr[20][20]);
+long int getProduct(int numArr[20][20]);
+long int getProductDia(int numArr[20][20]);
 
 int main(void)
 {
+	//input on website
 	char *num =    "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\
 					49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00\
 					81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65\
@@ -32,12 +34,14 @@ int main(void)
 					20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16\
 					20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54\
 					01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
-	int numArr[20][20];
+
+	
+	int numArr[20][20]; //array for all numbers in input
 	int len = strlen(num);
 	
 	//formating input code
-	int j = 0;
-	int k = 0;
+	int j = 0; //row of numArr
+	int k = 0; //colum of numArr
 	for (int i = 0; i < len; i++)
 	{
 		if	(((int)num[i] >= 48) && ((int)num[i] <= 57))
@@ -53,48 +57,99 @@ int main(void)
 		}
 	}
 	
-	//check horizontally
-	//transform for vertical checking
-	//transform for diagonally
-	long int answer;
-	long int product;
+	long int answer[4];
+	int transNumArr[20][20]; //array for alterration of input
+
+	//checking horizontally
+	answer[0] = getProduct(numArr);
 	
-	product = getProduct(numArr);
-	
-	printf("%ld ", product);
-	
-	
+	//checking vertically 
 	for (int i = 0; i < 20; i++)
 	{
 		for (int j = 0; j < 20; j++)
 		{
-		//	printf("%i ", numArr[i][j]);
+			transNumArr[i][j] = numArr[j][i];
 		}
-		printf("\n");
 	}
+	answer[1] = getProduct(transNumArr);
+	
+	//checking diagonally L to R
+	answer[2] = getProductDia(numArr);
+	
+	//checking dia R to L
+	for (int i = 0; i < 20; i ++)
+	{
+		for (int j = 0; j < 20; j++)
+		{
+			transNumArr[i][j] = numArr[i][19 - j];
+		}
+	}
+	answer[3] = getProductDia(transNumArr);
+	
+	//copmparing all answers
+	for (int i = 1; i < 4; i++)
+	{
+		if (answer[i - 1] > answer[i])
+		{
+			answer[i] = answer[i - 1];
+		}
+	}
+	printf("%ld ", answer[3]);
 }
 
-long int getProduct(int arr[20][20])
+long int getProduct(int numArr[20][20])
 {
-	long int answer = 1;
-	long int product = 1;
-	
+	unsigned long int answer = 1;
+	unsigned long int product = 1;
+
 	for (int i = 0; i < 20; i++)
 	{
-		for (int j = 0; j < 16; j++)
+		for (int j = 0; j < 17; j++)
 		{
-			product = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+			//get the product
+			for (int seqNum = 0; seqNum < 4; seqNum++)
+			{
+				product *= numArr[i][j + seqNum];
+			}
+			
+			//store answer 
 			if (product > answer)
 			{
 				answer = product;
 			}
+			
+			//reset product
+			product = 1;
+		}
+	}
+	return answer;
+}
+
+long int getProductDia(int numArr[20][20])
+{
+	unsigned long int answer = 1;
+	unsigned long int product = 1;
+
+	for (int i = 0; i < 17; i++)
+	{
+		for (int j = 0; j < 17; j++)
+		{
+			//get the product
+			for (int seqNum = 0; seqNum < 4; seqNum++)
+			{
+				product *= numArr[i + seqNum][j + seqNum];
+			}
+			
+			//store answer 
+			if (product > answer)
+			{
+				answer = product;
+			}
+			
+			//reset product
+			product = 1;
 		}
 	}
 	
 	return answer;
-}	
-
-
-
-
-
+}
