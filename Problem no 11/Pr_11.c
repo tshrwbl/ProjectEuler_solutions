@@ -44,7 +44,7 @@ int main(void)
 	int k = 0; //colum of numArr
 	for (int i = 0; i < len; i++)
 	{
-		if (((int)num[i] >= 48) && ((int)num[i] <= 57)) //#1 fixed
+		if (((int)num[i] >= 48) && ((int)num[i] <= 57)) //fixed #1
 		{
 			numArr[j][k] = (((int)num[i] - 48) * 10) + ((int)num[i + 1] - 48);
 			k++;
