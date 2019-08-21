@@ -22,7 +22,6 @@ void main(void)
         {
             add -= num;
         }
-        printf("addtion = %i\n", add);
     }
     printf("addtion = %i\n", add);
 }

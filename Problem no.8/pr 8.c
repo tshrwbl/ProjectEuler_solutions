@@ -60,10 +60,10 @@ int main(void)
 		}
 	}
 	
-	for (int i = 0; i <= anslen; i++)
-	{
-		printf("%i ", prArr[i]);
-	}
-	printf("\n%lld ", greatProduct);
+//	for (int i = 0; i <= anslen; i++)
+//	{
+//		printf("%i ", prArr[i]);
+//	}
+	printf("%lld ", greatProduct);
 }
 

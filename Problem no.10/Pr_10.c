@@ -21,13 +21,12 @@ int main (void)
 		if (isPrime(num))
 		{
 			primeSum += num;
-			printf("%i %lld \n", num ,primeSum);
 		}
 		num += 2;		
 	}
 	
 	//print the 10001st prime number
-	printf("%i %lld \n", num ,primeSum);
+	printf("%lld \n", primeSum);
 }
 
 bool isPrime(int n)
