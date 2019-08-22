@@ -7,9 +7,9 @@ Solutions of all problems in projecteuler.net
 
 Different branches are created for diffirent languges.
 
-Master branch contain psuedocode/algorithym used for problem. (work still in progress)
+Master   : contain psuedocode/algorithym used for problem. (work still in progress)
 
-Branch 1 : C lang
+Branch 1 : C lang (most uptodate)
 
 Branch 2 : java
 
