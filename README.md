@@ -1,10 +1,7 @@
 <h1 align="center">
 <br/>
 # ProjectEuler_solutions
-
 Solutions of all problems in projecteuler.net
-  
-**Day of start 4 AUG 2019**
 </h1>
 
 Different branches are created for diffirent languges.
@@ -19,3 +16,4 @@ Branch 3 : python
 
 Branch 4 : C++
 
+**Day of start 4 AUG 2019**
