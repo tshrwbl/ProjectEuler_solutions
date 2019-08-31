@@ -22,7 +22,8 @@ int main(void)
 {
 	int maxTerms = 0;
 	int maxNum;
-	for (int i = 1000000; i > 0; i--)
+	int limit = 1000000;
+	for (int i = limit; i > limit / 2; i--)
 	{
 		if (maxTerms < calTerms(i))
 		{

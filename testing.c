@@ -1,10 +1,23 @@
-#include<stdio.h>
-#include<unistd.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
+ 
+union Data {
+   int i;
+   float f;
+   char str[20];
+};
+ 
+int main( ) {
 
-int main(void)
-{
-	char *s = "12345";
-	int a = ((int)s[4] - 48) * 10;
-	printf("%i ", a);
+   union Data data;        
+
+   data.i = 10;
+   data.f = 220.5;
+   strcpy( data.str, "C Programming");
+
+   printf( "data.i : %d\n", data.i);
+   printf( "data.f : %f\n", data.f);
+   printf( "data.str : %s\n", data.str);
+
+   return 0;
 }
