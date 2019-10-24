@@ -23,6 +23,7 @@ int main(void)
 	int maxTerms = 0;
 	int maxNum;
 	int limit = 1000000;
+	
 	for (int i = limit; i > limit / 2; i--)
 	{
 		if (maxTerms < calTerms(i))
@@ -32,7 +33,7 @@ int main(void)
 			printf("New max: %i terms for %i\n", maxTerms, maxNum);
 		}
 	}
-	printf("\nThe max is %i with %i terms\n", maxNum, maxTerms);
+	printf("\nThe max is %i with %i terms \n", maxNum, maxTerms);
 }
 
 int calTerms(unsigned long long int num)
