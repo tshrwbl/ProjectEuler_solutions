@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 
 //TO DO
 /* 
@@ -7,10 +6,11 @@
 
 What is the sum of the digits of the number 21000?
 */
+unsigned long long int power(int num, int rest_to);
 
 int main (void)
 {
-	//setup for the 1000 digit number
+	//setup to store the 400 digit number - 20 array of 20 digits numbers
 	unsigned long long int power_data[20];
 	power_data[19] = 2;
 	for (int i = 0; i < 19; i++)
@@ -18,6 +18,7 @@ int main (void)
 		power_data[i] = 0;
 	}
 	
+	//Iterate 2 to the power of 1000
 	int carry_on = 0;
 	for (int j = 1; j < 1000; j++)
 	{	
@@ -28,31 +29,44 @@ int main (void)
 			//cut the 18th digit
 			if (i != 19)
 			{
-				carry_on = power_data[i + 1] / (unsigned long long int) pow(10, 18);
-				power_data[i + 1] -= carry_on * (unsigned long long int) pow(10, 18);
+				carry_on = power_data[i + 1] / power(10, 18);
+				unsigned long long int place_value_carry_on = carry_on * power(10, 18);
+				power_data[i + 1] -= place_value_carry_on;	
 				power_data[i] += carry_on;
 			}
-			//printf("%i, %i , %i, %lld \n", j + 1, i, carry_on, power_data[i]);
 		}
-		//printf("____xxx____\n");
 	}
-	
-	for (int i = 0; i < 19; i++)
+	printf("2 to the power of 1000 = \n");
+	for(int i = 0; i < 20; i++)
 	{
-		printf("%lld , %i \n", power_data[i], i);
+		printf("%lld",power_data[i]);
 	}
 	
+	//Add all the digits of the nubmer	
 	int answer = 0;
 	int unit_place;
 	for (int i = 0; i < 20; i++)
 	{
 		for (int digi = 19; digi > 0; digi--)
 		{
-			unit_place = power_data[i] / (unsigned long long int) pow(10, digi);
-			power_data[i] -= unit_place * (unsigned long long int) pow(10, digi);
+			unit_place = power_data[i] / power(10, digi);
+			unsigned long long int place_value = unit_place * power(10, digi);
+			power_data[i] -= place_value;
 			answer += unit_place;
-			printf("%i, %lld, %i, %i \n", i, power_data[i], unit_place, answer);
 		}
+		answer += power_data[i];
 	}
-	printf("%i ", answer);
+	
+	//print the result
+	printf("\n\n sum of all its digits = %i ", answer);
+}
+
+unsigned long long int power(int num, int rest_to)
+{
+	unsigned long long int answer = num;
+	for(int i = 1; i < rest_to; i++)
+	{
+		answer *= num;
+	}
+	return answer;
 }
