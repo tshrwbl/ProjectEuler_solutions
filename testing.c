@@ -1,19 +1,17 @@
-#include<stdio.h>
-#include<string.h>
- 
-int main()
-{
-        char string_a[20];
-        char string_b[20];
-        printf("Enter the First String:\t");
-        scanf("%s", string_a);
-        printf("\nEnter the Second String:\t");
-        scanf("%s", string_b);
-        printf("\nFirst String:\t%s\n", string_a);
-        printf("\nSecond String:\t%s", string_b);
-        strcat(string_a, string_b);
-        printf("\nFirst String:\t%s\n", string_a);
-        printf("\nSecond String:\t%s", string_b);
-        printf("\n");
-        return 0;
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <float.h>
+#include <math.h>
+
+int main(void) {
+	for(int j = 0; j < 10; j++)
+	{
+		printf("passed\n");
+		for(int i = (j - 1); i >= 0; i--)
+		{
+			printf("%i %i \n", j, i);
+		}
+	}
+    return 0;
 }

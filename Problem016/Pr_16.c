@@ -57,10 +57,30 @@ int main(void)
 	printf("\n\n sum of all its digits = %i ", answer);
 }
 
-unsigned long long int power(int num, int rest_to)
+/* unsigned long long int power(int num, int rest_to)
 {
 	unsigned long long int answer = num;
 	for(int i = 1; i < rest_to; i++)
+	{
+		answer *= num;
+	}
+	return answer;
+} */
+
+unsigned long long int power(int num, int rest_to)
+{
+	if(num == 1)
+	{
+		return 1;
+	}
+	unsigned long long int answer = num * num;
+	int counter = 2;
+	while((counter *2) < rest_to)
+	{
+		answer *= answer;
+		counter *= 2;
+	}
+	for(int i = 1; i < (rest_to - counter); i++)
 	{
 		answer *= num;
 	}
