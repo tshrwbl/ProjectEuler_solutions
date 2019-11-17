@@ -41,8 +41,7 @@ int main(void)
 			}
 			else
 			{
-				smallNum[seq] = i;
-				seq++;
+				smallNum[seq++] = i;
 			}
 		}
 	}	

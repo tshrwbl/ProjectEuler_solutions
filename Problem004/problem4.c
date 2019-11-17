@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdbool.h>
 
 //A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 * 99.
@@ -35,31 +34,19 @@ bool IsPalindrome(int num)
 {
 	//length ln
 	//narr array contains all digits in number
-	int ln = (int) floor(log10((double) num) + 1);
-	int narr[ln];
-	for (int i = 0; i < ln; i++)
+	int reverse = 0 , rem, checker = num;
+	while(num > 0)
 	{
-		int power = round(pow(10.0 , ((double) ln) - 1 - i));
-		narr[i] = num / power;
-		num -= narr[i] * power;
-	}
-	
+		rem = num % 10;
+		reverse = (reverse * 10) + rem;
+		num /= 10;
+	}	
 	//check for the match
-	int match = 0;
-	for (int j = 0; j < ln; j++)
-	{
-		if (narr[j] == narr[ln - 1 - j])
-		{
-			match++;
-		}
-	}
-	
-	//return true or false
-	if (match == ln)
+	if(reverse == checker)
 	{
 		return true;
 	}
-	else 
+	else
 	{
 		return false;
 	}

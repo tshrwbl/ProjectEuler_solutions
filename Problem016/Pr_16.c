@@ -1,8 +1,8 @@
 //TO DO
 /* 
-215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
 
-What is the sum of the digits of the number 21000?
+What is the sum of the digits of the number 2^1000?
 */
 
 #include<stdio.h>
@@ -57,17 +57,7 @@ int main(void)
 	printf("\n\n sum of all its digits = %i ", answer);
 }
 
-/* unsigned long long int power(int num, int rest_to)
-{
-	unsigned long long int answer = num;
-	for(int i = 1; i < rest_to; i++)
-	{
-		answer *= num;
-	}
-	return answer;
-} */
-
-unsigned long long int power(int num, int rest_to)
+unsigned long long int power(int num, int rest_to)  //optimised 
 {
 	if(num == 1)
 	{
@@ -86,3 +76,13 @@ unsigned long long int power(int num, int rest_to)
 	}
 	return answer;
 }
+
+/* unsigned long long int power(int num, int rest_to) 
+{
+	unsigned long long int answer = num;
+	for(int i = 1; i < rest_to; i++)
+	{
+		answer *= num;
+	}
+	return answer;
+} */

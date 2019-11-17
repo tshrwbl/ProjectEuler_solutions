@@ -39,8 +39,8 @@ int main(void)
 		//increment number by 2
 		if(prime == 1) 
 		{
-			arr[currentlen] = num;
-			currentlen++;
+			arr[currentlen++] = num;
+			//currentlen++;
 			//printf("got to prime %i carr %i \n", prime , arr[currentlen]);
 		}
 		

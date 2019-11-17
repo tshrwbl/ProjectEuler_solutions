@@ -1,3 +1,8 @@
 
 .vscode/launch.json
 *.out
+.metadata/
+*.project
+Problem193/a.exe
+a.exe
+*.json
