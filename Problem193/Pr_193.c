@@ -8,18 +8,18 @@ How many squarefree numbers are there below 2^50?
 #include<stdbool.h>
 #include<math.h>
 
-bool is_squarefree(unsigned long long int num);
-bool is_prime(unsigned long long int num);
+bool is_squarefree(unsigned long long num);
+bool is_prime(unsigned long long num);
 
 int main(void)
 {
-	unsigned long long int counter = 2; //presummed 1 and 2
-	for(unsigned long long int i = 3; i <= pow(2, 50); i++)
+	register unsigned long long counter = 2; //presummed 1 and 2
+	for(register unsigned long long i = 3; i <= pow(2, 50); i++)
 	{
 		if(is_squarefree(i))
 		{
 			counter++;
-			//printf("YES %lld , %i\n", i, counter);
+			printf("YES %lld , %i\n", i, counter);
 		}
 	}
 	printf("%i ", counter);

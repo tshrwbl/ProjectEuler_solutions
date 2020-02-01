@@ -12,9 +12,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 int main(void)
 {
-	long int num = 2;
-	long int temp = 1;
-	long int answer = 2; //addition of all even turms
+	long int num = 2, temp = 1, answer = 2; //addition of all even turms
 	
 	while (num < 4000000)
 	{

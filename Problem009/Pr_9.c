@@ -12,9 +12,9 @@
 
 int main() 
 {
-	int numa = 3;
-	int numb;
-	int numc;
+	register int numa = 3;
+	register int numb;
+	register int numc;
 	int c;
 	
 	while(true)
