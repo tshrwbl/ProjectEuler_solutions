@@ -30,11 +30,11 @@ const char *p = "731671765313306249192251196744265747423553491949349698352031277
 
 int main(void)
 {
-	int length = strlen(p);
+	const int length = strlen(p);
 	int numarr[length];
 	unsigned long long int product = 1;
 	unsigned long long int greatProduct = 1;
-	int anslen = 13;
+	const int anslen = 13;
 	int prArr[anslen + 1];
 	
 	for (int i = 0; i < length; i++)

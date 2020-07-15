@@ -4,18 +4,18 @@
 
 python code for the same
 def prime(val):
-    if val % 2 == 0:
-        return False
-    for i in range(3,val,2):
-        if val % i == 0:
-            return False
-    return True
+	if val % 2 == 0:
+		return False
+	for i in range(3,val,2):
+		if val % i == 0:
+			return False
+	return True
 
 for i in range(3,600851475143,2):
-    if 600851475143 % i == 0:
-        if prime(600851475143//i):
-            print("ans " , 600851475143//i) */
-            
+	if 600851475143 % i == 0:
+		if prime(600851475143//i):
+			print("ans " , 600851475143//i) */
+			
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
